@@ -1,0 +1,93 @@
+@import (less) "../node_modules/normalize.css/normalize.css";
+
+@media-sm-max-width: 500px;
+@media-md-max-width: 800px;
+
+#app {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#header {
+  background-color: deepskyblue;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-between;
+  max-height: 30vh;
+  overflow-y: auto;
+
+  a {
+    color: white;
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+
+    &:hover {
+      background-color: darken(deepskyblue, 5%);
+    }
+  }
+
+  @media all and (max-width: @media-sm-max-width) {
+    flex-direction: column;
+  }
+
+  #brand {
+    flex-shrink: 0;
+  }
+
+  #navigation {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    justify-content: space-between;
+
+    @media all and (max-width: @media-sm-max-width) {
+      flex-direction: column;
+    }
+
+    & > ul {
+      display: flex;
+      justify-content: flex-end;
+
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      @media all and (max-width: @media-sm-max-width) {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+#middle {
+  display: flex;
+  flex-grow: 1;
+}
+
+#sidebar {
+  overflow-y: auto;
+
+  width: 200px;
+
+  & > div {
+    padding: 10px;
+  }
+}
+
+#main {
+  display: flex;
+}
+
+#footer {
+  flex-shrink: 0;
+  background-color: gray;
+  padding: 10px;
+  color: white;
+}
